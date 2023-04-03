@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />    
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+
+<body>
+    <div class="example">
+        <div class="exList exList01">
+            <span></span><p>bject</p>
+        </div>
+        <div class="exList exList09">
+            <span>O</span><p>bject</p>
+        </div>
+        <div class="exList exList02">
+            <p data-text="TheHigh" >TheHigh</p>
+        </div>
+        <div class="exList exList03">
+            <div class="content">
+                <h2>THEHIGH</h2>
+                <h2>THEHIGH</h2>
+            </div>
+        </div>
+        <div class="exList exList05">
+            <div class="textBox">
+                <div class="text text-1"></div>
+                <div class="text text-2"></div>
+                <div class="text text-3"></div>
+                <div class="text text-4"></div>
+                <div class="text text-5"></div>
+              </div>
+        </div>             
+        <div class="exList exList04">
+            <div data-splitting>THEHIGH</div>
+        </div>      
+        <div class="exList exList06">
+            <p>THEHIGH</p>
+        </div>
+        <div class="exList exList07">
+            <h1 class="text07">
+                <span class="text-wrapper">
+                  <span class="letters">THEHIGH</span>
+                </span>
+            </h1>
+        </div>
+        <div class="exList exList08">
+            <h1 class="text08">
+                <span class="text-wrapper">
+                  <span class="letters">THEHIGH</span>
+                </span>
+              </h1>              
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+    
+    <script> 
+        // exList04의 Splitting plugin
+        Splitting();
+
+        // Replay animation by hiding & showing the element again
+        let el = document.body;
+        el.addEventListener("click", function (e) {
+        el.hidden = true;
+        requestAnimationFrame(() => {
+            el.hidden = false;
+        });
+        });
+
+        /* Play / Pause on keypress */
+        var s = document.createElement("style");
+        s.innerHTML =
+        " *, *:before, *:after { animation-play-state: paused !important; }";
+
+        document.addEventListener("keypress", function () {
+        s.parentNode ? document.head.removeChild(s) : document.head.appendChild(s);
+        });
+    
+    </script>
+    <!-- exList05 js 묶음 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+        let lineOne, lineTwo, lineThree, lineFour, lineFive;
+        lineOne = document.querySelector(".text-1");
+        lineTwo = document.querySelector(".text-2");
+        lineThree = document.querySelector(".text-3");
+        lineFour = document.querySelector(".text-4");
+        lineFive = document.querySelector(".text-5");
+
+        let tl = anime.timeline({
+            delay: 0,
+            easing: "easeOutExpo",
+            direction: "alternate",
+            loop: true
+        });
+
+        tl.add(
+        {
+            duration: 700,
+            targets: lineOne,
+            translateX: -75,
+            opacity: 0
+        },
+        400
+        );
+
+        tl.add({
+        duration: 700,
+        targets: lineOne,
+        height: 175,
+        opacity: 1
+        });
+        tl.add(
+        {
+            duration: 100,
+            targets: lineTwo,
+            translateX: -75,
+            opacity: 0
+        },
+        "+=500"
+        );
+        tl.add({
+            duration: 700,
+            targets: lineTwo,
+            width: 150,
+            opacity: 1
+        });
+        tl.add({
+            duration: 700,
+            targets: lineThree,
+            height: 200,
+            opacity: 1
+        });
+        tl.add({
+            duration: 100,
+            targets: lineFour,
+            translateX: 75,
+            opacity: 0
+        });
+        tl.add({
+            duration: 700,
+            translateY: 45,
+            translateX: 75,
+            targets: lineFour,
+            height: 100,
+            opacity: 1
+        });
+        tl.add({
+            duration: 100,
+            targets: lineFive,
+            translateX: 75,
+            opacity: 0
+        });
+        tl.add({
+            duration: 700,
+            targets: lineFive,
+            translateX: 75,
+            translateY: -60,
+            opacity: 1
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script>
+        // exList06
+        var textWrapper = document.querySelector('.exList06 p');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.exList06 .letter',
+            scale: [2,1],
+            opacity: [0,1],
+            translateZ: 0,
+            easing: "easeOutExpo",
+            duration: 1600,
+            delay: (el, i) => 70*i
+        }).add({
+            targets: '.exList06 p',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });        
+    </script>
+    <script>
+        // exList07
+        var textWrapper = document.querySelector('.text07 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.text07 .letter',
+            translateY: ["1.1em", 0],
+            translateZ: 0,
+            duration: 2050,
+            delay: (el, i) => 50 * i
+        }).add({
+            targets: '.text07',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+    </script>
+    <script>
+        // exList08
+        var textWrapper = document.querySelector('.text08 .letters');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+        .add({
+            targets: '.text08 .letter',
+            rotateY: [-90, 0],
+            duration: 1300,
+            delay: (el, i) => 45 * i
+        }).add({
+            targets: '.text08',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+    </script>
+</body>
+</html>
