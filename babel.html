@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/noisejs@2.0.0"></script>
+    <script>
+        var seed = Math.random();
+        var noise = new Noise(seed);
+    
+        var div = document.createElement('div');
+        div.innerHTML = `<b>SEED</b> ${seed}`;
+        div.style.cssText = 'font-family:Arial,sans-serif;font-size:0.7rem;color:rgba(0,0,0,0.5);position:absolute;left:1.25rem;bottom:1.25rem;letter-spacing:0.01em';
+        document.body.appendChild(div);
+    
+        const config = {
+            radius: 150,
+            radiusStep: 2,
+            numRings: 50,
+            numPoints: 50,
+            xSmooth: 15,
+            ySmooth: 15,
+            zNoise: 0.05
+        };
+    
+        function normalize(value, min, max) {
+            return (value - min) / (max - min);
+        }
+    
+        class Ring {
+    
+            constructor(index) {
+    
+                this.index = index;
+                this.radius = config.radius + (index * config.radiusStep);
+                this.points = [];
+    
+                let angle = 0;
+                let count = config.numPoints;
+                let slice = Math.TWO_PI / count;
+    
+                for(let i = 0; i < count; i++) {
+    
+                    let x = Math.cos(angle);
+                    let y = Math.sin(angle);
+    
+                    let displacement = noise.perlin3(
+                        x * this.index / config.xSmooth,
+                        y * this.index / config.ySmooth,
+                        this.index * config.zNoise
+                    );
+    
+                    let scale = normalize(displacement, -1, 1) * Math.pow(this.index, 1.35);
+    
+                    x = x * (this.radius + displacement * scale);
+                    y = y * (this.radius + displacement * scale);
+    
+                    this.points.push({ x, y });
+                    angle += slice;
+                }
+    
+                this.points.push(this.points[0]);
+            }
+    
+            update(time) {
+    
+            }
+    
+            draw(context) {
+    
+                let p = this.points[0];
+                let alpha = this.index / config.numRings * 0.25;
+    
+                context.beginPath();
+                context.moveTo(p.x, p.y);
+    
+                curveThrough(this.points, context);
+    
+                context.strokeStyle = `rgba(0,0,0,${alpha})`;
+                context.stroke();
+            }
+        }
+    
+        function curveThrough(points, context) {
+    
+            var i, n, a, b, x, y;
+    
+            for(i = 1, n = points.length - 2; i < n; i++) {
+    
+                a = points[i];
+                b = points[i + 1];
+                x = (a.x + b.x) * 0.5;
+                y = (a.y + b.y) * 0.5;
+    
+                context.quadraticCurveTo(a.x, a.y, x, y);
+            }
+    
+            a = points[i];
+            b = points[i + 1];
+    
+            context.quadraticCurveTo(a.x, a.y, b.x, b.y);
+        }
+    
+        Math.TWO_PI = Math.PI * 2;
+    
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+    
+        var rings = [];
+    
+        function draw(time) {
+    
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.save();
+            context.translate(canvas.center.x, canvas.center.y);
+    
+            rings.forEach((r) => {
+                r.update(time);
+                r.draw(context);
+            });
+    
+            context.restore();
+        }
+    
+        function resize(event) {
+    
+            let w = window.innerWidth;
+            let h = window.innerHeight;
+            let scale = window.devicePixelRatio || 1;
+    
+            canvas.width = w * scale;
+            canvas.height = h * scale;
+            canvas.center.x = w * 0.5;
+            canvas.center.y = h * 0.5;
+    
+            context.scale(scale, scale);
+            draw();
+        }
+    
+        function setup() {
+            rings = [];
+            for(let i = 0; i < config.numRings; i++) {
+                rings.push( new Ring(i) );
+            }
+            draw();
+        }
+    
+        function load() {
+    
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.center = {};
+    
+            document.body.style.cssText = 'margin:0;padding:0;overflow:hidden;';
+            document.body.appendChild(canvas);
+    
+            window.addEventListener('resize', resize);
+            resize();
+    
+            var gui = new dat.GUI();
+            gui.add(config, 'radius', 50, 250).step(1).onChange(setup);
+            gui.add(config, 'radiusStep', 0, 3).step(0.1).onChange(setup);
+            gui.add(config, 'numRings', 10, 100).step(1).onChange(setup);
+            gui.add(config, 'xSmooth', 1, 50).step(1).onChange(setup);
+            gui.add(config, 'ySmooth', 1, 50).step(1).onChange(setup);
+            gui.add(config, 'zNoise', 0, 0.5).step(0.01).onChange(setup);
+    
+            setup();
+        }
+    
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.4/dat.gui.min.js';
+        script.onload = load;
+        document.body.appendChild(script);
+    
+    </script>
+</body>
+</html>

@@ -16,8 +16,49 @@
         <div class="exList exList01">
             <span></span><p>bject</p>
         </div>
+        <div class="exList exList11">
+            <svg viewBox="0 0 160 160">
+                <circle
+                  class=circle
+                  cx=80
+                  cy=80
+                  r=50
+                  stroke-width=28px
+                  stroke=white
+                  fill=black
+                />
+              </svg>
+              <p>bject</p>
+              <script>
+                    let one = document.querySelector(".circle");
+                    let length = one.getTotalLength();        
+              </script>
+        </div>
+        <div class="exList exList12">
+            <div class="circle">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                    <defs>
+                        <path id="circlePath" d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "/>
+                    </defs>
+                    <circle cx="150" cy="100" r="75" fill="none"/>
+                    <g>
+                        <use xlink:href="#circlePath" fill="none"/>
+                        <text fill="#fff">
+                            <textPath xlink:href="#circlePath">THEHIGH COMPANY THEHIGH COMPANY THEHIGH COMPANY</textPath>
+                        </text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="exList exList04">
+            <div data-splitting>O</div>
+        </div> 
         <div class="exList exList09">
-            <span>O</span><p>bject</p>
+           <div class="process">
+            <div class="left"></div>
+            <div class="right"></div>
+           </div>
+           <p>bject</p>
         </div>
         <div class="exList exList02">
             <p data-text="TheHigh" >TheHigh</p>
@@ -37,9 +78,7 @@
                 <div class="text text-5"></div>
               </div>
         </div>             
-        <div class="exList exList04">
-            <div data-splitting>THEHIGH</div>
-        </div>      
+  
         <div class="exList exList06">
             <p>THEHIGH</p>
         </div>
@@ -57,6 +96,16 @@
                 </span>
               </h1>              
         </div>
+        <div class="exList exList10">
+            <div class="wrapper">
+                <div class="c-item c1"></div>
+                <div class="c-item c2"></div>
+                <div class="c-item c3"></div>
+                <div class="c-item c4"></div>
+            </div>
+        </div>
+
+
     </div>
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
@@ -229,5 +278,6 @@
             delay: 1000
         });
     </script>
+
 </body>
 </html>
