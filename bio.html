@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./bio.css">
     <script src="//code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 <style>
@@ -12,36 +13,4992 @@
     .example {width:100%; height:100%; display:flex; flex-direction:row; justify-content:space-between; flex-wrap:wrap;}
     .example .exList {width:100%; background-color:#f3fafe; padding:50px 0; display:flex; flex-direction:column; justify-content:center; align-items:center;}
     @keyframes ani01 {
-        0% {transform:scale(0.9);}
-        50% {transform:scale(1);}
+        0% {transform:scale(0.9); opacity:0.9;}
+        50% {transform:scale(1); opacity:1;}
     }
-    .exList01 .circle {position:relative; }
-    .exList01 #motion {
-        position:absolute; top:-150px;left:-75px;     
-        animation:ani01 5s cubic-bezier(.3, 0, .7, 1) both;
-        animation-delay:1s;
-        animation-iteration-count:infinite;
+    .exList {position:relative;}
+    .exList03 .circle {position:relative; }
+    .exList03 .bioImg {
+      position:relative; z-index:2;
+      -webkit-animation:ani01 8s ease-in-out 3s infinite both;
+          animation:ani01 8s ease-in-out 3s infinite both;
     }
-    .exList02 .circle {position:relative;overflow:hidden;}
-    #particle {position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);}
+    @keyframes ani02 {
+      100% {
+          transform: rotate(360deg);
+      }
+    }
+    .exList04 .bioImg {
+      position:relative; z-index:2;
+      animation:ani02 50s linear infinite; 
+      transform-origin: 50% 50%;
+    }
+    .frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index:0;
+      transform:translate(-50%,-50%);
+      border-radius: 2px;
+
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .ring {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      top: 50%;
+      left: 50%;
+      transform:translate(-50%,-50%);
+    }
+    .central {
+      width : 4px;
+      height: 4px;
+      position: absolute;
+      left: 49.5%;
+      top: 49.5%;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    .ring .dot .fill {
+      position:relative;
+      z-index:2;
+    }
+    .ring-1 .dot-1 .fill::after,
+    .ring-1 .dot-3 .fill::after,
+    .ring-1 .dot-6 .fill::after,
+    .ring-1 .dot-9 .fill::after,
+    .ring-1 .dot-12 .fill::after,
+    .ring-1 .dot-15 .fill::after,
+    .ring-1 .dot-17 .fill::after,
+    .ring-2 .dot-2 .fill::after,
+    .ring-2 .dot-4 .fill::after,
+    .ring-2 .dot-6 .fill::after,
+    .ring-2 .dot-8 .fill::after,
+    .ring-2 .dot-10 .fill::after,
+    .ring-2 .dot-12 .fill::after,
+    .ring-2 .dot-14 .fill::after,
+    .ring-2 .dot-16 .fill::after,
+    .ring-2 .dot-18 .fill::after,
+    .ring-2 .dot-20 .fill::after,
+    .ring-2 .dot-22 .fill::after,
+    .ring-3 .dot-3 .fill::after,
+    .ring-3 .dot-6 .fill::after,
+    .ring-3 .dot-9 .fill::after,
+    .ring-3 .dot-12 .fill::after,
+    .ring-3 .dot-15 .fill::after,
+    .ring-3 .dot-17 .fill::after,
+    .ring-3 .dot-19 .fill::after,
+    .ring-3 .dot-21 .fill::after,
+    .ring-3 .dot-23 .fill::after,
+    .ring-3 .dot-26 .fill::after,
+    .ring-3 .dot-29 .fill::after,
+    .ring-3 .dot-30 .fill::after,
+    .ring-4 .dot-1 .fill::after,
+    .ring-4 .dot-3 .fill::after,
+    .ring-4 .dot-6 .fill::after,
+    .ring-4 .dot-9 .fill::after,
+    .ring-4 .dot-12 .fill::after,
+    .ring-4 .dot-14 .fill::after,
+    .ring-4 .dot-16 .fill::after,
+    .ring-4 .dot-18 .fill::after,
+    .ring-4 .dot-20 .fill::after,
+    .ring-4 .dot-22 .fill::after,
+    .ring-4 .dot-24 .fill::after,
+    .ring-4 .dot-26 .fill::after,
+    .ring-4 .dot-28 .fill::after,
+    .ring-4 .dot-30 .fill::after,
+    .ring-4 .dot-32 .fill::after,
+    .ring-4 .dot-34 .fill::after,
+    .ring-4 .dot-36 .fill::after,
+    .ring-5 .dot-1 .fill::after,
+    .ring-5 .dot-3 .fill::after,
+    .ring-5 .dot-5 .fill::after,
+    .ring-5 .dot-7 .fill::after,
+    .ring-5 .dot-9 .fill::after,
+    .ring-5 .dot-12 .fill::after,
+    .ring-5 .dot-14 .fill::after,
+    .ring-5 .dot-16 .fill::after,
+    .ring-5 .dot-18 .fill::after,
+    .ring-5 .dot-20 .fill::after,
+    .ring-5 .dot-22 .fill::after,
+    .ring-5 .dot-24 .fill::after,
+    .ring-5 .dot-26 .fill::after,
+    .ring-5 .dot-28 .fill::after,
+    .ring-5 .dot-30 .fill::after,
+    .ring-5 .dot-32 .fill::after,
+    .ring-5 .dot-33 .fill::after,
+    .ring-5 .dot-35 .fill::after,
+    .ring-5 .dot-37 .fill::after,
+    .ring-5 .dot-39 .fill::after,
+    .ring-5 .dot-41 .fill::after,
+    .ring-5 .dot-42 .fill::after,
+    .ring-6 .dot-2 .fill::after,
+    .ring-6 .dot-4 .fill::after,
+    .ring-6 .dot-6 .fill::after,
+    .ring-6 .dot-8 .fill::after,
+    .ring-6 .dot-10 .fill::after,
+    .ring-6 .dot-12 .fill::after,
+    .ring-6 .dot-14 .fill::after,
+    .ring-6 .dot-16 .fill::after,
+    .ring-6 .dot-18 .fill::after,
+    .ring-6 .dot-20 .fill::after,
+    .ring-6 .dot-22 .fill::after,
+    .ring-6 .dot-24 .fill::after,
+    .ring-6 .dot-26 .fill::after,
+    .ring-6 .dot-28 .fill::after,
+    .ring-6 .dot-30 .fill::after,
+    .ring-6 .dot-32 .fill::after,
+    .ring-6 .dot-34 .fill::after,
+    .ring-6 .dot-36 .fill::after, 
+    .ring-6 .dot-38 .fill::after,
+    .ring-6 .dot-40 .fill::after,
+    .ring-6 .dot-42 .fill::after,
+    .ring-6 .dot-44 .fill::after,
+    .ring-6 .dot-46 .fill::after,
+    .ring-7 .dot-1 .fill::after,
+    .ring-7 .dot-3 .fill::after,
+    .ring-7 .dot-5 .fill::after,
+    .ring-7 .dot-7 .fill::after,
+    .ring-7 .dot-9 .fill::after,
+    .ring-7 .dot-12 .fill::after,
+    .ring-7 .dot-14 .fill::after,
+    .ring-7 .dot-16 .fill::after,
+    .ring-7 .dot-18 .fill::after,
+    .ring-7 .dot-20 .fill::after,
+    .ring-7 .dot-22 .fill::after,
+    .ring-7 .dot-24 .fill::after,
+    .ring-7 .dot-26 .fill::after,
+    .ring-7 .dot-28 .fill::after,
+    .ring-7 .dot-30 .fill::after,
+    .ring-7 .dot-32 .fill::after,
+    .ring-7 .dot-33 .fill::after,
+    .ring-7 .dot-35 .fill::after,
+    .ring-7 .dot-37 .fill::after,
+    .ring-7 .dot-39 .fill::after,
+    .ring-7 .dot-41 .fill::after,
+    .ring-7 .dot-42 .fill::after,
+    .ring-7 .dot-44 .fill::after,
+    .ring-7 .dot-46 .fill::after,
+    .ring-7 .dot-48 .fill::after,
+    .ring-7 .dot-50 .fill::after,
+    .ring-7 .dot-52 .fill::after,
+    .ring-7 .dot-54 .fill::after,
+    .ring-7 .dot-56 .fill::after,
+    .ring-8 .dot-2 .fill::after,
+    .ring-8 .dot-4 .fill::after,
+    .ring-8 .dot-6 .fill::after,
+    .ring-8 .dot-8 .fill::after,
+    .ring-8 .dot-10 .fill::after,
+    .ring-8 .dot-12 .fill::after,
+    .ring-8 .dot-14 .fill::after,
+    .ring-8 .dot-16 .fill::after,
+    .ring-8 .dot-18 .fill::after,
+    .ring-8 .dot-20 .fill::after,
+    .ring-8 .dot-22 .fill::after,
+    .ring-8 .dot-24 .fill::after,
+    .ring-8 .dot-26 .fill::after,
+    .ring-8 .dot-28 .fill::after,
+    .ring-8 .dot-30 .fill::after,
+    .ring-8 .dot-32 .fill::after,
+    .ring-8 .dot-34 .fill::after,
+    .ring-8 .dot-36 .fill::after, 
+    .ring-8 .dot-38 .fill::after,
+    .ring-8 .dot-40 .fill::after,
+    .ring-8 .dot-42 .fill::after,
+    .ring-8 .dot-44 .fill::after,
+    .ring-8 .dot-46 .fill::after,    
+    .ring-8 .dot-48 .fill::after,    
+    .ring-8 .dot-50 .fill::after,    
+    .ring-8 .dot-52 .fill::after,
+    .ring-8 .dot-54 .fill::after,
+    .ring-8 .dot-56 .fill::after,
+    .ring-9 .dot-2 .fill::after,
+    .ring-9 .dot-4 .fill::after,
+    .ring-9 .dot-6 .fill::after,
+    .ring-9 .dot-8 .fill::after,
+    .ring-9 .dot-10 .fill::after,
+    .ring-9 .dot-12 .fill::after,
+    .ring-9 .dot-14 .fill::after,
+    .ring-9 .dot-16 .fill::after,
+    .ring-9 .dot-18 .fill::after,
+    .ring-9 .dot-20 .fill::after,
+    .ring-9 .dot-22 .fill::after,
+    .ring-9 .dot-24 .fill::after,
+    .ring-9 .dot-26 .fill::after,
+    .ring-9 .dot-28 .fill::after,
+    .ring-9 .dot-30 .fill::after,
+    .ring-9 .dot-32 .fill::after,
+    .ring-9 .dot-34 .fill::after,
+    .ring-9 .dot-36 .fill::after, 
+    .ring-9 .dot-38 .fill::after,
+    .ring-9 .dot-40 .fill::after,
+    .ring-9 .dot-42 .fill::after,
+    .ring-9 .dot-44 .fill::after,
+    .ring-9 .dot-46 .fill::after,    
+    .ring-9 .dot-48 .fill::after,
+    .ring-9 .dot-50 .fill::after,
+    .ring-9 .dot-52 .fill::after,
+    .ring-9 .dot-54 .fill::after,
+    .ring-9 .dot-56 .fill::after,
+    .ring-9 .dot-58 .fill::after,
+    .ring-9 .dot-60 .fill::after,
+    .ring-9 .dot-62 .fill::after,
+    .ring-9 .dot-64 .fill::after,
+    .ring-9 .dot-66 .fill::after,
+    .ring-10 .dot-4 .fill::after,
+    .ring-10 .dot-6 .fill::after,
+    .ring-10 .dot-8 .fill::after,
+    .ring-10 .dot-10 .fill::after,
+    .ring-10 .dot-12 .fill::after,
+    .ring-10 .dot-14 .fill::after,
+    .ring-10 .dot-16 .fill::after,
+    .ring-10 .dot-18 .fill::after,
+    .ring-10 .dot-20 .fill::after,
+    .ring-10 .dot-22 .fill::after,
+    .ring-10 .dot-24 .fill::after,
+    .ring-10 .dot-26 .fill::after,
+    .ring-10 .dot-28 .fill::after,
+    .ring-10 .dot-30 .fill::after,
+    .ring-10 .dot-32 .fill::after,
+    .ring-10 .dot-34 .fill::after,
+    .ring-10 .dot-36 .fill::after, 
+    .ring-10 .dot-38 .fill::after,
+    .ring-10 .dot-40 .fill::after,
+    .ring-10 .dot-42 .fill::after,
+    .ring-10 .dot-44 .fill::after,
+    .ring-10 .dot-46 .fill::after,
+    .ring-10 .dot-48 .fill::after,
+    .ring-10 .dot-50 .fill::after,
+    .ring-10 .dot-52 .fill::after,
+    .ring-10 .dot-56 .fill::after,
+    .ring-10 .dot-58 .fill::after,
+    .ring-10 .dot-60 .fill::after,
+    .ring-10 .dot-62 .fill::after,
+    .ring-10 .dot-63 .fill::after,
+    .ring-10 .dot-65 .fill::after,
+    .ring-10 .dot-67 .fill::after,
+    .ring-10 .dot-69 .fill::after,
+    .ring-10 .dot-71 .fill::after,
+    .ring-11 .dot-2 .fill::after,
+    .ring-11 .dot-4 .fill::after,
+    .ring-11 .dot-6 .fill::after,
+    .ring-11 .dot-8 .fill::after,
+    .ring-11 .dot-10 .fill::after,
+    .ring-11 .dot-12 .fill::after,
+    .ring-11 .dot-14 .fill::after,
+    .ring-11 .dot-16 .fill::after,
+    .ring-11 .dot-18 .fill::after,
+    .ring-11 .dot-20 .fill::after,
+    .ring-11 .dot-22 .fill::after,
+    .ring-11 .dot-24 .fill::after,
+    .ring-11 .dot-26 .fill::after,
+    .ring-11 .dot-28 .fill::after,
+    .ring-11 .dot-30 .fill::after,
+    .ring-11 .dot-32 .fill::after,
+    .ring-11 .dot-34 .fill::after,
+    .ring-11 .dot-36 .fill::after, 
+    .ring-11 .dot-38 .fill::after,
+    .ring-11 .dot-40 .fill::after,
+    .ring-11 .dot-42 .fill::after,
+    .ring-11 .dot-44 .fill::after,
+    .ring-11 .dot-46 .fill::after,    
+    .ring-11 .dot-48 .fill::after,
+    .ring-11 .dot-50 .fill::after,
+    .ring-11 .dot-52 .fill::after,
+    .ring-11 .dot-54 .fill::after,
+    .ring-11 .dot-56 .fill::after,     
+    .ring-11 .dot-59 .fill::after,
+    .ring-11 .dot-61 .fill::after,
+    .ring-11 .dot-62 .fill::after,
+    .ring-11 .dot-64 .fill::after,
+    .ring-11 .dot-66 .fill::after,
+    .ring-11 .dot-68 .fill::after,
+    .ring-11 .dot-70 .fill::after,
+    .ring-11 .dot-72 .fill::after,
+    .ring-11 .dot-74 .fill::after,
+    .ring-11 .dot-76 .fill::after,
+    .ring-11 .dot-78 .fill::after,
+    .ring-11 .dot-80 .fill::after,
+    .ring-11 .dot-82 .fill::after,
+    .ring-11 .dot-84 .fill::after,
+    .ring-11 .dot-86 .fill::after,
+    .ring-11 .dot-88 .fill::after,
+    .ring-11 .dot-90 .fill::after,
+    .ring-11 .dot-92 .fill::after,
+    .ring-11 .dot-94 .fill::after,
+    .ring-11 .dot-96 .fill::after,
+    .ring-11 .dot-98 .fill::after,
+    .ring-11 .dot-100 .fill::after,
+    .ring-12 .dot-1 .fill::after,
+    .ring-12 .dot-3 .fill::after,
+    .ring-12 .dot-6 .fill::after,
+    .ring-12 .dot-9 .fill::after,
+    .ring-12 .dot-12 .fill::after,
+    .ring-12 .dot-15 .fill::after,
+    .ring-12 .dot-17 .fill::after,
+    .ring-12 .dot-32 .fill::after,
+    .ring-12 .dot-34 .fill::after,
+    .ring-12 .dot-36 .fill::after, 
+    .ring-12 .dot-38 .fill::after,
+    .ring-12 .dot-40 .fill::after,
+    .ring-12 .dot-42 .fill::after,
+    .ring-12 .dot-44 .fill::after,
+    .ring-12 .dot-46 .fill::after,    
+    .ring-12 .dot-48 .fill::after,
+    .ring-12 .dot-50 .fill::after,
+    .ring-12 .dot-52 .fill::after,
+    .ring-12 .dot-54 .fill::after,
+    .ring-12 .dot-56 .fill::after,     
+    .ring-12 .dot-59 .fill::after,
+    .ring-12 .dot-61 .fill::after,
+    .ring-12 .dot-62 .fill::after,
+    .ring-12 .dot-64 .fill::after,
+    .ring-12 .dot-66 .fill::after,
+    .ring-12 .dot-68 .fill::after,
+    .ring-12 .dot-70 .fill::after,
+    .ring-12 .dot-72 .fill::after,
+    .ring-12 .dot-74 .fill::after,
+    .ring-12 .dot-76 .fill::after,
+    .ring-12 .dot-78 .fill::after,
+    .ring-12 .dot-80 .fill::after,
+    .ring-12 .dot-82 .fill::after,
+    .ring-12 .dot-84 .fill::after,
+    .ring-12 .dot-86 .fill::after,
+    .ring-12 .dot-88 .fill::after,
+    .ring-12 .dot-90 .fill::after,
+    .ring-12 .dot-92 .fill::after,
+    .ring-12 .dot-94 .fill::after,
+    .ring-12 .dot-96 .fill::after,
+    .ring-12 .dot-98 .fill::after,
+    .ring-12 .dot-100 .fill::after,
+    .ring-13 .dot-1 .fill::after,
+    .ring-13 .dot-3 .fill::after,
+    .ring-13 .dot-6 .fill::after,
+    .ring-13 .dot-9 .fill::after,
+    .ring-13 .dot-12 .fill::after,
+    .ring-13 .dot-15 .fill::after,
+    .ring-13 .dot-17 .fill::after,
+    .ring-13 .dot-32 .fill::after,
+    .ring-13 .dot-34 .fill::after,
+    .ring-13 .dot-36 .fill::after, 
+    .ring-13 .dot-38 .fill::after,
+    .ring-13 .dot-40 .fill::after,
+    .ring-13 .dot-42 .fill::after,
+    .ring-13 .dot-44 .fill::after,
+    .ring-13 .dot-46 .fill::after,    
+    .ring-13 .dot-48 .fill::after,
+    .ring-13 .dot-50 .fill::after,
+    .ring-13 .dot-52 .fill::after,
+    .ring-13 .dot-54 .fill::after,
+    .ring-13 .dot-56 .fill::after,     
+    .ring-13 .dot-59 .fill::after,
+    .ring-13 .dot-61 .fill::after,
+    .ring-13 .dot-62 .fill::after,
+    .ring-13 .dot-64 .fill::after,
+    .ring-13 .dot-66 .fill::after,
+    .ring-13 .dot-68 .fill::after,
+    .ring-13 .dot-70 .fill::after,
+    .ring-13 .dot-72 .fill::after,
+    .ring-13 .dot-74 .fill::after,
+    .ring-13 .dot-76 .fill::after,
+    .ring-13 .dot-78 .fill::after,
+    .ring-13 .dot-80 .fill::after,
+    .ring-13 .dot-82 .fill::after,
+    .ring-13 .dot-84 .fill::after,
+    .ring-13 .dot-86 .fill::after,
+    .ring-13 .dot-88 .fill::after,
+    .ring-13 .dot-90 .fill::after,
+    .ring-13 .dot-92 .fill::after,
+    .ring-13 .dot-94 .fill::after,
+    .ring-13 .dot-96 .fill::after,
+    .ring-13 .dot-98 .fill::after,
+    .ring-13 .dot-100 .fill::after          
+    {
+      content:'';
+      width:16px;
+      height:16px;
+      background-color:rgba(133,191,251,0.3);
+      border-radius:50%;
+      position:absolute;
+      top:50%; left:50%; margin-top:-8px; margin-left:-8px;
+      z-index:-2;
+      animation:curcular 2s ease-in-out infinite both;
+    }    
 </style>
 <body>
     <div class="example">
-        <div class="exList exList01">
-            <div class="circle">
-                <img src="./line01.png" >
-                <img src="./test.png" id="motion">
-            </div>
-        </div>
-        <div class="exList exList02">
-            <div class="circle">
-                <img src="./line01.png" >
-                <canvas id="particle"></canvas>
-            </div>
-        </div>
         <div class="exList exList03">
-
-        </div>        
+            <div class="circle">
+                <figure class="bioImg"><img src="./line01.png" ></figure>
+                <div class="frame">
+                    <div class="central"></div>
+                  <div class="ring ring-1">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-2">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-3">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-4">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-5">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-6">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-7">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-8">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-9">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-61">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-62">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-63">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-64">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-65">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-66">
+                      <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-10">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-61">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-62">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-63">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-64">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-65">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-66">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-67">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-68">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-69">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-70">
+                      <div class="fill"></div>
+                    </div>
+                        <div class="dot dot-71">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-72">
+                            <div class="fill"></div>
+                    </div>
+                  </div>
+                  <div class="ring ring-11">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-61">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-62">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-63">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-64">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-65">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-66">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-67">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-68">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-69">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-70">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-71">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-72">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-73">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-74">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-75">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-76">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-77">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-78">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-79">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-80">
+                      <div class="fill"></div>
+                    </div>       
+                    <div class="dot dot-81">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-82">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-83">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-84">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-85">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-86">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-87">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-88">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-89">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-90">
+                      <div class="fill"></div>
+                    </div>  
+                    <div class="dot dot-91">
+                      <div class="fill"></div>
+                    </div>          
+                    <div class="dot dot-92">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-93">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-94">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-95">
+                      <div class="fill"></div>
+                    </div>            
+                    <div class="dot dot-96">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-97">
+                      <div class="fill"></div>
+                    </div>    
+                    <div class="dot dot-98">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-99">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-100">
+                      <div class="fill"></div>
+                    </div> 
+                  </div> 
+                  <div class="ring ring-12">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-61">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-62">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-63">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-64">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-65">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-66">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-67">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-68">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-69">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-70">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-71">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-72">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-73">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-74">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-75">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-76">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-77">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-78">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-79">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-80">
+                      <div class="fill"></div>
+                    </div>       
+                    <div class="dot dot-81">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-82">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-83">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-84">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-85">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-86">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-87">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-88">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-89">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-90">
+                      <div class="fill"></div>
+                    </div>  
+                    <div class="dot dot-91">
+                      <div class="fill"></div>
+                    </div>          
+                    <div class="dot dot-92">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-93">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-94">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-95">
+                      <div class="fill"></div>
+                    </div>            
+                    <div class="dot dot-96">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-97">
+                      <div class="fill"></div>
+                    </div>    
+                    <div class="dot dot-98">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-99">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-100">
+                      <div class="fill"></div>
+                    </div> 
+                  </div>   
+                  <div class="ring ring-13">
+                    <div class="dot dot-1">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-2">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-3">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-4">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-5">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-6">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-7">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-8">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-9">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-10">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-11">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-12">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-13">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-14">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-15">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-16">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-17">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-18">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-19">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-20">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-21">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-22">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-23">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-24">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-25">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-26">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-27">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-28">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-29">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-30">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-31">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-32">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-33">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-34">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-35">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-36">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-37">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-38">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-39">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-40">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-41">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-42">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-43">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-44">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-45">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-46">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-47">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-48">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-49">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-50">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-51">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-52">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-53">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-54">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-55">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-56">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-57">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-58">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-59">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-60">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-61">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-62">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-63">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-64">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-65">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-66">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-67">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-68">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-69">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-70">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-71">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-72">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-73">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-74">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-75">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-76">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-77">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-78">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-79">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-80">
+                      <div class="fill"></div>
+                    </div>       
+                    <div class="dot dot-81">
+                      <div class="fill"></div>
+                        </div>
+                    <div class="dot dot-82">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-83">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-84">
+                        <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-85">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-86">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-87">
+                      <div class="fill"></div>
+                    </div>                    
+                    <div class="dot dot-88">
+                      <div class="fill"></div>
+                    </div>
+                    <div class="dot dot-89">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-90">
+                      <div class="fill"></div>
+                    </div>  
+                    <div class="dot dot-91">
+                      <div class="fill"></div>
+                    </div>          
+                    <div class="dot dot-92">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-93">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-94">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-95">
+                      <div class="fill"></div>
+                    </div>            
+                    <div class="dot dot-96">
+                      <div class="fill"></div>
+                    </div>                
+                    <div class="dot dot-97">
+                      <div class="fill"></div>
+                    </div>    
+                    <div class="dot dot-98">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-99">
+                      <div class="fill"></div>
+                    </div> 
+                    <div class="dot dot-100">
+                      <div class="fill"></div>
+                    </div> 
+                  </div>                                                       
+                </div>
+            </div>
+        </div>   
+        <div class="exList exList04">
+          <div class="circle">
+              <figure class="bioImg"><img src="./line01.png" ></figure>
+              <div class="frame">
+                  <div class="central"></div>
+                <div class="ring ring-1">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-2">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-3">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-4">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-5">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-6">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-7">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-8">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-9">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-61">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-62">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-63">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-64">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-65">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-66">
+                    <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-10">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-61">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-62">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-63">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-64">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-65">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-66">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-67">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-68">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-69">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-70">
+                    <div class="fill"></div>
+                  </div>
+                      <div class="dot dot-71">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-72">
+                          <div class="fill"></div>
+                  </div>
+                </div>
+                <div class="ring ring-11">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-61">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-62">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-63">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-64">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-65">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-66">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-67">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-68">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-69">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-70">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-71">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-72">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-73">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-74">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-75">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-76">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-77">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-78">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-79">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-80">
+                    <div class="fill"></div>
+                  </div>       
+                  <div class="dot dot-81">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-82">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-83">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-84">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-85">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-86">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-87">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-88">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-89">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-90">
+                    <div class="fill"></div>
+                  </div>  
+                  <div class="dot dot-91">
+                    <div class="fill"></div>
+                  </div>          
+                  <div class="dot dot-92">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-93">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-94">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-95">
+                    <div class="fill"></div>
+                  </div>            
+                  <div class="dot dot-96">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-97">
+                    <div class="fill"></div>
+                  </div>    
+                  <div class="dot dot-98">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-99">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-100">
+                    <div class="fill"></div>
+                  </div> 
+                </div> 
+                <div class="ring ring-12">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-61">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-62">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-63">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-64">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-65">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-66">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-67">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-68">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-69">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-70">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-71">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-72">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-73">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-74">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-75">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-76">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-77">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-78">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-79">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-80">
+                    <div class="fill"></div>
+                  </div>       
+                  <div class="dot dot-81">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-82">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-83">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-84">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-85">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-86">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-87">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-88">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-89">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-90">
+                    <div class="fill"></div>
+                  </div>  
+                  <div class="dot dot-91">
+                    <div class="fill"></div>
+                  </div>          
+                  <div class="dot dot-92">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-93">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-94">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-95">
+                    <div class="fill"></div>
+                  </div>            
+                  <div class="dot dot-96">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-97">
+                    <div class="fill"></div>
+                  </div>    
+                  <div class="dot dot-98">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-99">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-100">
+                    <div class="fill"></div>
+                  </div> 
+                </div>   
+                <div class="ring ring-13">
+                  <div class="dot dot-1">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-2">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-3">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-4">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-5">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-6">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-7">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-8">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-9">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-10">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-11">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-12">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-13">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-14">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-15">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-16">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-17">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-18">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-19">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-20">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-21">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-22">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-23">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-24">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-25">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-26">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-27">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-28">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-29">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-30">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-31">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-32">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-33">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-34">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-35">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-36">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-37">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-38">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-39">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-40">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-41">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-42">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-43">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-44">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-45">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-46">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-47">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-48">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-49">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-50">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-51">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-52">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-53">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-54">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-55">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-56">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-57">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-58">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-59">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-60">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-61">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-62">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-63">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-64">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-65">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-66">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-67">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-68">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-69">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-70">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-71">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-72">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-73">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-74">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-75">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-76">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-77">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-78">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-79">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-80">
+                    <div class="fill"></div>
+                  </div>       
+                  <div class="dot dot-81">
+                    <div class="fill"></div>
+                      </div>
+                  <div class="dot dot-82">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-83">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-84">
+                      <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-85">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-86">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-87">
+                    <div class="fill"></div>
+                  </div>                    
+                  <div class="dot dot-88">
+                    <div class="fill"></div>
+                  </div>
+                  <div class="dot dot-89">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-90">
+                    <div class="fill"></div>
+                  </div>  
+                  <div class="dot dot-91">
+                    <div class="fill"></div>
+                  </div>          
+                  <div class="dot dot-92">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-93">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-94">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-95">
+                    <div class="fill"></div>
+                  </div>            
+                  <div class="dot dot-96">
+                    <div class="fill"></div>
+                  </div>                
+                  <div class="dot dot-97">
+                    <div class="fill"></div>
+                  </div>    
+                  <div class="dot dot-98">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-99">
+                    <div class="fill"></div>
+                  </div> 
+                  <div class="dot dot-100">
+                    <div class="fill"></div>
+                  </div> 
+                </div>                                                       
+              </div>
+          </div>
+      </div>               
     </div>
 </body>
 </html>
