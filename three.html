@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="'utf-8">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+    }
+    .layout {
+        width:100%;height:100vh;
+        position:relative;
+        overflow:hidden;
+    }
+    img {
+        width:700px;
+        position:absolute;
+        top:0;
+        right:0;
+    }
+    @keyframes rotate {
+        0% {transform: rotateY(0deg);}
+        100% {transform: rotateY(150deg);}
+    }
+    .motion {
+        perspective:2000px; 
+    }
+    .motion img {
+        perspective:2000px; 
+        transform-style: preserve-3d;
+    }    
+    .motion img {
+        animation-name: rotate; /* 사용할 애니메이션의 이름을 정합니다. */
+        animation-duration:10s; /* 애니메이션의 지속시간을 정합니다. */
+        animation-iteration-count: infinite; /* 애니메이션의 반복 횟수를 무한대로 설정합니다. */
+        animation-timing-function: linear; /* 애니메이션의 타이밍 함수를 선형으로 설정합니다. */
+        transform-origin: center; /* 이미지의 회전 축을 중심으로 설정합니다. */
+    }   
+    /*   */
+    #background{
+        position:absolute;
+        top:0;
+        right:0;
+    }
+    #car{
+        position: absolute;
+        width: 300px;
+        z-index: 100;
+        left: calc(50% - 150px);
+        margin-top:30%;
+    }
+    .textBox {
+        width:100%;height:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+    .textBox a {
+        display:block;
+    }
+    /*  */
+    .dancing-image01 {
+        width:300px;
+        position: absolute;
+        top:60%;
+        left:40%;
+        animation: floating 2s ease-in-out infinite;
+    }
+    .dancing-image02 {
+        position: absolute;
+        top:0;
+        right:0;
+        animation: floating2 2s ease-in-out infinite;
+    }
+    @keyframes floating {
+        0%, 100% {
+            transform: translate3d(0, 0, 0);
+            opacity:0.8;
+        }
+        50% {
+            transform: translate3d(0, -15px, 0);
+            opacity:1;
+        }
+    }   
+    @keyframes floating2 {
+        0%, 100% {
+            transform: translate3d(0, 0, 0);
+            opacity:1;
+        }
+        50% {
+            transform: translate3d(0, 15px, 0);
+            opacity:0.8;
+        }
+    }     
+</style>
+<body>
+    <div class="layout layout01">
+        <h1 class="t1">회전</h1>
+        <figure class="motion"><img src="./3d.png"></figure>
+    </div>
+    <div class="layout">
+        <h1 class="t1">마우스 좌표에 따라 움직이는 이미지</h1>
+        <img src="./3d2.png" id="car" />
+        <img src="./3d.png" id="background"/>
+    </div>
+    <div class="layout layout03">
+        <h1 class="t1">둥둥 떠다니는 느낌</h1>
+        <img src="./3d2.png" class="dancing-image01">
+        <img src="./3d.png" class="dancing-image02">
+    </div>    
+    <div class="layout">
+        <h1>동영상</h1>
+        <div class="textBox">
+            <a href="https://www.istockphoto.com/kr/%EB%B9%84%EB%94%94%EC%98%A4/dna-%EA%B5%AC%EC%A1%B0-%EB%8D%B0%EC%98%A5%EC%8B%9C%EB%A6%AC%EB%B3%B4%ED%95%B5%EC%82%B0-%EC%9D%98%EB%A3%8C-%EA%B3%BC%ED%95%99-rna-%EC%97%B0%EA%B5%AC-%EB%B0%8F-%EC%83%9D%EB%AC%BC%ED%95%99-%EC%9C%A0%EC%A0%84-%EB%B6%84%EC%9E%90-%EC%8B%A4%ED%97%98%EC%8B%A4-%EC%97%B0%EA%B5%AC%EB%A5%BC%EC%9C%84%ED%95%9C-3d-%EC%95%A0%EB%8B%88%EB%A9%94%EC%9D%B4%EC%85%98-gm1215581074-354104854" target="_blank">
+                동영상1
+            </a>
+            <a href="https://elements.envato.com/3d-rendered-loopable-animation-of-rotating-dna-wit-XSX2JC2" target="_blank">
+                동영상2
+            </a>
+            <a href="https://elements.envato.com/3d-rendered-loopable-animation-of-rotating-dna-glo-T85ULXU" target="_blank">
+                동영상3
+            </a>
+            <a href="https://www.istockphoto.com/kr/%EB%B9%84%EB%94%94%EC%98%A4/dna-gm184109425-27935388" target="_blank">
+                동영상4
+            </a>
+            <a href="https://www.clipartkorea.co.kr/search/single_preview.php?type=movie&cont_code=154640866&rows=1&page=651&TOTAL_PAGE=48517&dsKind=1#" target="_blank">
+                동영상5
+            </a>
+            <a href="https://www.clipartkorea.co.kr/search/single_preview.php?type=movie&menu=null&cont_code=076847482&dsKind=1" target="_blank">
+                동영상6
+            </a>
+            <a href="https://www.clipartkorea.co.kr/search/single_preview.php?type=movie&cont_code=94659925&rows=1&page=2851&TOTAL_PAGE=48517&dsKind=1" target="_blank">
+                동영상7
+            </a>
+            <a href="https://elements.envato.com/dna-background-rotation-3ULAPF9" target="_blank">
+                동영상8
+            </a>
+            <a href="https://www.istockphoto.com/kr/%EB%B9%84%EB%94%94%EC%98%A4/%ED%9D%B0%EC%83%89-%EB%B0%94%ED%83%95%EC%97%90-dna-gm1408885279-459611607">
+                동영상9
+            </a>
+        </div>
+    </div>
+    <script>
+        let car, background;
+        let x = 0, y = 0;
+        let mx = 0, my = 0;
+        const speed = 0.03;
+
+        const loop = () =>{
+            mx += (x - mx) * speed;
+            my += (y - my) * speed;
+            window.requestAnimationFrame(loop);
+        }
+
+        const mouseFunc = (e) =>{
+            x = (e.clientX-window.innerWidth/2), y = (e.clientY-window.innerHeight/2);
+            car.style.transform = `translate(${-(mx/50)}px, ${-(my/50)}px)`;
+            background.style.transform = `translate(${(mx/12)}px, ${(my/6)}px)`;
+        }
+
+        window.onload = () =>{
+            car = document.getElementById("car");
+            background = document.getElementById("background");
+            loop();
+            window.addEventListener("mousemove", mouseFunc);
+        }        
+    </script>
+
+</body>
+</html>
