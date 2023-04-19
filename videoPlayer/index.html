@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/player.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="videoBox">
+            <div class="video">
+                <video onclick="play(event)" src="https://res.cloudinary.com/codelife/video/upload/v1637805738/intro_l5ul1k.mp4" id="video"></video>
+            </div>
+            <div class="controlBox">
+                <div class="timeline">
+                    <div class="bar">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <div class="lfBox">
+                        <div class="playBox">
+                            <button><i class="xi-step-backward"></i></button>
+                            <button onclick="play(event)"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>                            
+                            <button><i class="xi-step-forward"></i></button>
+                        </div>
+                        <div class="detalis">
+                            <button id='btnReplay' class='replay' title='replay' accesskey="R" onclick='replayVideo();'><i class="xi-repeat"></i></button>
+                            <button><i class="xi-volume-off"></i><i class="xi-volume-up"></i></button>
+                        </div>
+                    </div>
+                    <div class="rtBox">
+
+                    </div>
+                    <!-- <button onclick="play(event)"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button> -->
+                    <!-- <button onclick="rewind(event)"><i class="fa fa-fast-backward"></i></button> -->
+
+                    <!-- <button onclick="forward(event)"><i class="fa fa-fast-forward"></i></button> -->
+                    <!-- <button onclick="fullScreen(event)"><i class="fa fa-expand"></i></button> -->
+                    <!-- <button onclick="download(event)"><i class="fa fa-cloud-download"></i></button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Select the HTML5 video
+        const video = document.querySelector("#video");
+        // set the pause button to display:none by default
+        document.querySelector(".fa-pause").style.display = "none"
+        // update the progress bar
+        video.addEventListener("timeupdate", () => {
+            let curr = (video.currentTime / video.duration) * 100
+            if(video.ended){
+                document.querySelector(".fa-play").style.display = "block"
+                document.querySelector(".fa-pause").style.display = "none"
+            }
+            document.querySelector('.inner').style.width = `${curr}%`
+        })
+        // Replays the media currently loaded in the player
+
+        // pause or play the video
+        const play = (e) => {
+            // Condition when to play a video
+            if(video.paused){
+                document.querySelector(".fa-play").style.display = "none"
+                document.querySelector(".fa-pause").style.display = "block"
+                video.play()
+            }
+            else{
+                document.querySelector(".fa-play").style.display = "block"
+                document.querySelector(".fa-pause").style.display = "none"
+                video.pause()
+            }
+        }
+        // trigger fullscreen
+        const fullScreen = (e) => {
+            e.preventDefault()
+            video.requestFullscreen()
+        }
+        // download the video
+        const download = (e) => {
+            e.preventDefault()
+            let a = document.createElement('a')
+            a.href = video.src 
+            a.target = "_blank"
+            a.download = ""
+            document.body.appendChild(a)
+            a.click()
+            document.body.removeChild(a)
+        }
+        // rewind the current time
+        const rewind = (e) => {
+            video.currentTime = video.currentTime - ((video.duration/100) * 5)
+        }
+        // forward the current time
+        const forward = (e) => {
+            video.currentTime = video.currentTime + ((video.duration/100) * 5)
+        }
+
+    </script>
+</body>
+</html>

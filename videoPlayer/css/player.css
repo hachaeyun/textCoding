@@ -1,0 +1,297 @@
+* {
+    padding:0;
+    margin:0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+:root {
+    --bgColor:#101217;
+}
+button {
+    background: transparent;
+    color: #fff;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+}
+.wrapper {
+    overflow:hidden;
+    width:100%;
+    height:100vh;
+    display:flex; 
+    flex-direction:initial;
+    justify-content:center;
+    align-items:center;
+}
+.videoBox {
+    width:790px;
+    height:520px;
+    background-color:var(--bgColor);
+}
+.videoBox .video {
+    width:calc(100% - 22px);
+    height:calc(83% - 18px);
+    padding:10px 11px 8px 11px;
+    overflow:hidden;
+    cursor:pointer;
+    position:relative;
+}
+.videoBox .video .bigplay {
+    position:absolute;
+    width:100%; height:100%;
+    background-color:#273046;
+    z-index:2;
+}
+.videoBox .video .bigplay .circle {
+    width:115px;
+    height:115px;
+    border-radius:50%;
+    border:12px solid #fff;
+    box-sizing:border-box;
+    position:absolute;
+    top:50%; left:50%; transform:translate(-50%,-50%);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.videoBox .video .bigplay .circle i {
+    position:absolute;
+    top:50%; left:57%; transform:translate(-50%,-50%);
+    font-size:7em;
+    text-align:center;
+    color:#ee6b37;
+}
+.videoBox .video video {
+    width:100%;
+}
+.videoBox .controlBox {
+    width:calc(100% - 16px);
+    height:calc(17% - 16px);
+    padding:8px;
+}
+.videoBox .controls {
+    width:100%;height:100%;
+    display:flex; flex-direction:row; 
+    justify-content:space-between;
+    align-items:center;
+}
+.videoBox .controls .lfBox {
+    display:flex; 
+    flex-direction:row;
+}
+.videoBox .controls .playBox {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    padding:0 55px 0 25px;
+}
+.videoBox .controls .playBox .off {
+    display:none;
+}
+.videoBox .controls .playBox button:hover .on{
+    display:none;
+}
+.videoBox .controls .playBox button:hover .off{
+    display:block;
+}
+.videoBox .controls .btnCircle {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    box-sizing:border-box;
+    border:1px solid #fff;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    margin:0 27px;
+}
+.videoBox .controls .btnCircle:hover {
+    border:2px solid #e65319;
+}
+.videoBox .controls .btnCircle:hover button {
+    color:#e65319;
+}
+.videoBox .controls .btnCircle button {
+    font-size:1.45em;
+    color:#ee6b37;
+    width:100%; height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.videoBox .controls .btnCircle i {
+    width:100%;height:100%;
+    font-size:1em;
+    color:#ee6b37;
+}
+
+
+/* Progress bar */
+.progress {
+    width: 100%;
+    height:4px;
+    position: relative;
+    float: left;
+    cursor: pointer;
+    background: #999;
+}
+.progress span {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+}
+.timeBar{
+    z-index:10;
+    width:0;
+    background: #ee6b37;
+}
+
+.bufferBar{
+    z-index:5;
+    width:0;
+    background: #eee;
+}
+.controllers button {
+    border: 1px solid #E7E7E7;
+    background-color: #FFFFFF;
+    color: #777;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin: 5px;
+    box-shadow: 1px 1px 3px #4C4C4C;
+    outline: none;
+    font-size: 18px;
+    display: inline-block;
+    float: left;
+}
+
+.controllers button:focus {
+    box-shadow: 1px 0px 7px #4C4C4C;
+    border-color: #ee6b37;
+    color: #ee6b37;
+    background-color: #4C4C4C;
+}
+.detalis {
+    display:flex;
+    flex-direction:row; 
+    align-items:center;
+}
+.btnPlay:after {
+    /* content: "\f04b"; */
+    /* font-family: 'FontAwesome'; */
+    font-family : xeicon;
+    content:"\ea3e";
+}
+.paused:after {
+    /* content: "\f04c"; */
+    content: "\ea3b";
+}
+.soundBox {
+    display:flex; 
+    flex-direction:row; 
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    margin-left:12px;
+}
+.sound:after {
+    content: "";
+    display:block;
+    width:28px; height:25px;
+    background-image:url(../img/soundBtn_on.png);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.sound:hover:after {
+    background-image:url(../img/soundBtn_on_hover.png);
+}
+.muted:after {
+    content: "";
+    display:block;
+    width:28px; height:25px;
+    background-image:url(../img/soundBtn_off.png);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.muted:hover:after {
+    background-image:url(../img/soundBtn_off_hover.png);
+}
+.muted .volume {
+    display:none;
+}
+.volume {
+    position:absolute;
+    top:50%; transform:translateY(-50%);
+    left:25px;
+    cursor: pointer;
+    width: 70px;
+    height: 10px;
+    float: left;
+    background-color: #999;
+}
+.volumeBar{
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ee6b37;
+    z-index: 10;
+}
+.replayBox ,
+.replayBox img{
+    cursor:pointer;
+    line-height:1;
+    vertical-align:middle;
+}
+.replayBox:hover .on {
+    display:none;
+}
+.replayBox:hover .off {
+    display:block;
+}
+.replayBox .off {
+    display:none;
+}
+.speedcnt {
+    text-decoration:none;
+    list-style:none;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+.speedcnt li {
+    width:41px; height:23px; line-height:23px;
+    border-radius:2px;
+    text-align:center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size:13px;
+    font-weight:300;
+    background-color:#1c2436;
+    color:#7d7f86;
+    cursor:pointer;
+    margin-left:2px;
+    opacity:0.9;
+}
+.speedcnt li.active:hover {
+    background-color:#fff;
+    font-weight:500;
+    color:#1c2436;
+}
+.speedcnt li:hover {
+    background-color:#fff;
+    font-weight:500;
+    color:#1c2436;
+    opacity:1;
+}
+.speedcnt li.active {
+    background-color:#273046;
+    color:#fff;
+    opacity:1;
+}
