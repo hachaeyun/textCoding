@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="./css/player.css">
+</head>
+<style>
+    .btn_play:after {
+        /* content: "\f04b"; */
+        /* font-family: 'FontAwesome'; */
+        font-family : xeicon;
+        content: "\ea3b";
+    }
+    .btn_play.pause:after {
+        /* content: "\f04c"; */
+        content:"\ea3e";        
+    }    
+    #progressbar {
+        width: 100%;
+        height: 10px;
+        background-color: #eee;
+        cursor: pointer;
+    }
+    #fullscreen-popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+    }
+    #progress {
+        width:0%;
+        height: 100%;
+        background-color:#e65319;
+    }
+    #fullscreen-popup #player2{
+        width:90%;
+        height:90%;
+    }
+    #close-btn {
+        position: absolute;
+        top:30px;
+        right:30px;
+        font-size:50px;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <div class="videoBox">           
+            <!-- <div class="video">                      
+                <object id="myvid" type="text/html" width="100%" height="500" data="" allowFullScreen></object> 
+                <div id="myvid">
+                    <iframe width="100%" height="" src="https://www.youtube.com/embed/ugIlVwC_R5g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <div class="videolist">
+                    <nav class="vids">                      
+                        <a class="link" href="https://www.youtube.com/embed/ugIlVwC_R5g"></a>        
+                    </nav>
+                </div>
+            </div> -->
+            <div class="video">          
+                <div id="player"></div>
+            </div>            
+            <div class="controlBox">
+                <div id="progressbar">
+                    <div id="progress"></div>
+                </div>
+                <div class="topControl">
+                    <!-- <div class="progress">
+                        <span class="bufferBar"></span>
+                        <span class="timeBar"></span>
+                    </div> -->
+                    <!-- <div class="progress">
+                        <span class="bufferBar"></span>
+                        <span class="timeBar"></span>
+                    </div> -->
+                </div>
+                <div class="controls">
+                    <div class="lfBox">
+                        <div class="playBox">
+                            <button class="prevvid btn_prev">
+                                <img src="./img/prevBtn.png" class="on">
+                                <img src="./img/prevBtn_hover.png" class="off">
+                            </button>
+                           
+                            <div class="btnCircle"> 
+                                <button class="btn_play pause" id="play-pause"></button>                       
+                            </div>
+                            <button class="nextvid btn_next">
+                                <img src="./img/nextBtn.png" class="on">
+                                <img src="./img/nextBtn_hover.png" class="off">
+                            </button>
+                        </div>
+                        <div class="detalis">
+                            <div class="replayBox" onclick="refreshPage()">
+                                <img src="./img/replayBtn.png" class="on" onClick="stopVideo()">
+                                <img src="./img/replayBtn_hover.png" id="replayBtn" class="off">
+                            </div>
+                            <div class="soundBox">
+                                <button class="sound" title="Mute/Unmute sound" id="btn_mute">
+
+                                </button>
+                                <!-- <div class="volume" title="Set volume">
+                                    <span class="volumeBar"></span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rtBox">
+                        <ul class="speedcnt">
+                            <li class="spdx10 active">1.0X</li>
+                            <li class="spdx12">1.2X</li>
+                            <li class="spdx14">1.4X</li>
+                            <li class="spdx18">1.8X</li>
+                            <li class="spdx20">2.0X</li>
+                        </ul>
+                        <button class="btnFS" id="open-btn">
+                            <i class="xi-arrows-alt"></i>
+                        </button>
+                        <!-- <button onclick="toggleFullScreen()"><i class="xi-arrows-alt"></i></button> -->
+                    </div>
+                    <!-- <button onclick="play(event)"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button> -->
+                    <!-- <button onclick="rewind(event)"><i class="fa fa-fast-backward"></i></button> -->
+
+                    <!-- <button onclick="forward(event)"><i class="fa fa-fast-forward"></i></button> -->
+                    <!-- <button onclick="fullScreen(event)"><i class="fa fa-expand"></i></button> -->
+                    <!-- <button onclick="download(event)"><i class="fa fa-cloud-download"></i></button> -->
+                </div>
+            </div>
+        </div>
+        <div id="fullscreen-popup">
+            <button id="close-btn">&times;</button>
+            <div id="player2"></div>
+        </div> 
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.8/jquery.mb.YTPlayer.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    
+    <script>
+        // JavaScript
+        // YouTube API를 비동기로 로드합니다.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 유튜브 비디오 ID
+        var videoId = "69LD1LqM60Y";
+
+        // 비디오 정보를 저장할 변수
+        var player;
+        var videoDuration;
+        var isPlaying = false;
+        var currentSpeed = 1.0;
+        var muteButton;
+        const btnFS = document.getElementById("btnFS");
+
+        // YouTube API가 준비되면 실행됩니다.
+        function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            height: '100%',
+            width: '100%',
+            videoId: videoId,
+            events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+            }
+        });
+        }
+        // 비디오가 준비되면 실행됩니다.
+        function onPlayerReady(event) {
+            videoDuration = player.getDuration();
+            muteButton = document.querySelector('.sound');
+            muteButton.addEventListener('click', toggleMute);
+        }
+
+        // 비디오 상태가 변경될 때 실행됩니다.
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                setInterval(updateProgressBar, 1000);
+                $('.btn_play').addClass('play').removeClass('pause');
+            }else {
+                $('.btn_play').removeClass('play').addClass('pause');
+            }
+        }
+
+        // progress bar를 업데이트합니다.
+        function updateProgressBar() {
+            var currentTime = player.getCurrentTime();
+            var progressPercent = (currentTime / videoDuration) * 100;
+            $('#progress').css('width', progressPercent + '%');
+        }
+
+        // progress bar를 클릭하면, 해당 위치로 동영상을 이동합니다.
+        $('#progressbar').click(function(event) {
+            var x = event.pageX - this.offsetLeft;
+            var clickedPosition = (x / $(this).width()) * videoDuration;
+            player.seekTo(clickedPosition);
+        });
+        // pause 버튼 과 play 버튼 toggle
+        $('#play-pause').click(function() {
+            if (isPlaying) {
+                player.pauseVideo();
+                isPlaying = false;
+                $('.btn_play').removeClass('play').addClass('pause');
+            } else {
+                player.playVideo();
+                isPlaying = true;
+                $('.btn_play').addClass('play').removeClass('pause');
+            }
+        });    
+
+        // 속도
+        $('.speedcnt li').on('click', function() { tabActive(this); });
+        var tabActive = function(obj) {
+            $('.speedcnt li').removeClass('active');
+            $(obj).addClass('active');
+        }
+        $('.spdx10').click(function() {
+            currentSpeed = 1.0;
+            player.setPlaybackRate(currentSpeed);
+        });
+        $('.spdx12').click(function() {
+            currentSpeed = 1.2;
+            player.setPlaybackRate(currentSpeed);
+        });
+        $('.spdx14').click(function() {
+            currentSpeed = 1.4;
+            player.setPlaybackRate(currentSpeed);
+        });
+        $('.spdx18').click(function() {
+            currentSpeed = 1.8;
+            player.setPlaybackRate(currentSpeed);
+        });
+        $('.spdx20').click(function() {
+            currentSpeed = 2.0;
+            player.setPlaybackRate(currentSpeed);
+        });
+        // 
+        function toggleMute() {
+            if (player.isMuted()) {
+                player.unMute();
+                muteButton.classList.remove('muted');
+            } else {
+                player.mute();
+                muteButton.classList.add('muted');
+            }
+        }
+        function refreshPage() {
+			location.reload();
+		}        
+    </script>
+
+    <script>
+        const openBtn = document.querySelector('#open-btn');
+        const closeBtn = document.querySelector('#close-btn');
+        const popup = document.querySelector('#fullscreen-popup');
+        const popupIframe = document.getElementById("popupIframe");
+
+        openBtn.addEventListener('click', () => {
+            popup.style.display = 'flex';
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });   
+        
+        // ESC 키를 눌렀을 때 팝업 닫기
+        document.onkeydown = function(event) {
+            if (event.keyCode == 27) {
+                popup.style.display = 'none';
+            }
+        }
+    </script>
+    <script>
+        // 비디오 ID
+        var videoId2 = "69LD1LqM60Y";
+
+        // 비디오 정보를 저장할 변수
+        var player2;
+
+        // popVideo 요소 생성
+        // var popVideoElement = document.createElement('div');
+        // popVideoElement.id = 'player2';
+
+        // popVideo에 요소 추가
+        // document.getElementById('popVideo').appendChild(popVideoElement);
+
+        // YouTube API가 준비되면 실행됩니다.
+        function onYouTubeIframeAPIReady2() {
+            player2 = new YT.Player('player2', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId2
+            });
+        }
+        // 함수 호출
+        var checkPlayer2 = setInterval(function() {
+            if (typeof YT !== 'undefined' && typeof YT.Player !== 'undefined') {
+                onYouTubeIframeAPIReady2();
+                clearInterval(checkPlayer2);
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
