@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
     <link rel="stylesheet" href="./css/player.css">
+
+
 </head>
 <style>
     .btn_play:after {
@@ -105,9 +107,9 @@
                             </button>
                         </div>
                         <div class="detalis">
-                            <div class="replayBox" onclick="refreshPage()">
-                                <img src="./img/replayBtn.png" class="on" onClick="stopVideo()">
-                                <img src="./img/replayBtn_hover.png" id="replayBtn" class="off">
+                            <div class="replayBox" >
+                                <img src="./img/replayBtn.png" class="on" >
+                                <img src="./img/replayBtn_hover.png" class="off" onclick="refreshPage()">
                             </div>
                             <div class="soundBox">
                                 <button class="sound" title="Mute/Unmute sound" id="btn_mute">
@@ -146,11 +148,20 @@
             <div id="player2"></div>
         </div> 
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.8/jquery.mb.YTPlayer.min.js"></script>
-    <script src="https://www.youtube.com/iframe_api"></script>
-    
+    <script src="./js/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.8/jquery.mb.YTPlayer.min.js"></script> -->
     <script>
+        var scriptUrl = 'https:\/\/www.youtube.com\/s\/player\/6f20102c\/www-widgetapi.vflset\/www-widgetapi.js';window['yt_embedsEnableHouseBrandAndYtCoexistence'] =  true ;try{var ttPolicy=window.trustedTypes.createPolicy("youtube-widget-api",{createScriptURL:function(x){return x}});scriptUrl=ttPolicy.createScriptURL(scriptUrl)}catch(e){}var YT;if(!window["YT"])YT={loading:0,loaded:0};var YTConfig;if(!window["YTConfig"])YTConfig={"host":"https://www.youtube.com"};
+        if(!YT.loading){YT.loading=1;(function(){var l=[];YT.ready=function(f){if(YT.loaded)f();else l.push(f)};window.onYTReady=function(){YT.loaded=1;for(var i=0;i<l.length;i++)try{l[i]()}catch(e$0){}};YT.setConfig=function(c){for(var k in c)if(c.hasOwnProperty(k))YTConfig[k]=c[k]};var a=document.createElement("script");a.type="text/javascript";a.id="www-widgetapi-script";a.src=scriptUrl;a.async=true;var c=document.currentScript;if(c){var n=c.nonce||c.getAttribute("nonce");if(n)a.setAttribute("nonce",n)}var b=
+        document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})()};
+    </script>
+    <!-- <script src="https://www.youtube.com/iframe_api"></script> -->
+    <!-- videoID, videoID2에 동영상ID값 넣기  -->
+
+    <script>
+        function refreshPage() {
+            location.reload();
+        }   
         // JavaScript
         // YouTube API를 비동기로 로드합니다.
         var tag = document.createElement('script');
@@ -168,6 +179,7 @@
         var currentSpeed = 1.0;
         var muteButton;
         const btnFS = document.getElementById("btnFS");
+        const refreshBtn = document.getElementById('refreshBtn');
 
         // YouTube API가 준비되면 실행됩니다.
         function onYouTubeIframeAPIReady() {
@@ -181,6 +193,7 @@
             }
         });
         }
+
         // 비디오가 준비되면 실행됩니다.
         function onPlayerReady(event) {
             videoDuration = player.getDuration();
@@ -259,13 +272,8 @@
                 player.mute();
                 muteButton.classList.add('muted');
             }
-        }
-        function refreshPage() {
-			location.reload();
-		}        
-    </script>
-
-    <script>
+        }        
+        // 
         const openBtn = document.querySelector('#open-btn');
         const closeBtn = document.querySelector('#close-btn');
         const popup = document.querySelector('#fullscreen-popup');
@@ -278,27 +286,18 @@
         closeBtn.addEventListener('click', () => {
             popup.style.display = 'none';
         });   
-        
+
         // ESC 키를 눌렀을 때 팝업 닫기
         document.onkeydown = function(event) {
             if (event.keyCode == 27) {
                 popup.style.display = 'none';
             }
-        }
-    </script>
-    <script>
+        }    
         // 비디오 ID
         var videoId2 = "69LD1LqM60Y";
 
         // 비디오 정보를 저장할 변수
         var player2;
-
-        // popVideo 요소 생성
-        // var popVideoElement = document.createElement('div');
-        // popVideoElement.id = 'player2';
-
-        // popVideo에 요소 추가
-        // document.getElementById('popVideo').appendChild(popVideoElement);
 
         // YouTube API가 준비되면 실행됩니다.
         function onYouTubeIframeAPIReady2() {
@@ -314,7 +313,7 @@
                 onYouTubeIframeAPIReady2();
                 clearInterval(checkPlayer2);
             }
-        }, 1000);
+        }, 1000);   
     </script>
 </body>
 </html>
