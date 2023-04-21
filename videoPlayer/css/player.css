@@ -277,7 +277,7 @@ button {
     color:#7d7f86;
     cursor:pointer;
     margin-left:2px;
-    opacity:0.9;
+    opacity:0.8;
 }
 .speedcnt li.active:hover {
     background-color:#fff;
@@ -295,3 +295,16 @@ button {
     color:#fff;
     opacity:1;
 }
+.videoBox .rtBox {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+.btnFS {
+    margin-left:10px;
+}
+.btnFS i {
+    font-size:1.8em;
+}
+
+/*  */
